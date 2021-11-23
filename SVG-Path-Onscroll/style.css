@@ -1,0 +1,18 @@
+body {
+  background-color: #f4dcb5;
+  height: 800vh;
+}
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.wrapper > svg {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
