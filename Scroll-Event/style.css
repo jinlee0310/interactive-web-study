@@ -1,0 +1,24 @@
+.container {
+  margin: 20px;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.list .up-on-scroll {
+  margin-top: 20px;
+  transition: transform 0.7s, opacity 1s;
+}
+.img-wrap {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  max-height: 400px;
+}
+.img-wrap .image {
+  object-fit: contain;
+  max-width: 500px;
+  width: 100%;
+}
