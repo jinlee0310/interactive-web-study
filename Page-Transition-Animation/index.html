@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .background{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            background: url(./Desktop.png);
+            background-repeat: no-repeat;
+            /* background-size: cover; */
+            background-position: center;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            /* animation: example 3s ease forwards; */
+            
+        }
+        @keyframes example{
+            from{width: 400px; height: 400px; border-radius: 50%;}
+            to{width: 100vw; height: 100vh; border-radius: 0;}
+        }
+    </style>
+</head>
+<body style="background-color: #EED6E3;">
+    <div class="background"></div>
+    <button>클릭</button>
+    <script>
+        const button=document.querySelector('button')
+        const func=()=>{
+            const bg=document.querySelector('.background')
+            bg.setAttribute('style','animation:example 2s ease forwards')
+        }
+        button.addEventListener('click',func)
+    </script>
+</body>
+</html>
