@@ -19,6 +19,7 @@ class Particle {
     this.y = y;
     this.radius = radius;
     this.vy = vy;
+    this.acc = 1.03;
   }
   draw() {
     ctx.beginPath(); //path를 그리기 시작함
@@ -28,6 +29,7 @@ class Particle {
     ctx.closePath();
   }
   update() {
+    this.vy *= this.acc;
     this.y += this.vy;
   }
 }
