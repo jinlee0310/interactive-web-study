@@ -10,7 +10,7 @@ let canvasHeight=innerHeight
 const interval=1000/60
 
 const particles=[]
-const PARTICLE_NUM=20
+const PARTICLE_NUM=800
 
 function init(){
     canvasWidth=innerWidth
@@ -38,11 +38,20 @@ function render(){
         now=Date.now()
         delta=now-then
         if(delta<interval) return 
+        ctx.clearRect(0,0,canvasWidth,canvasHeight)
 
-        particles.forEach((particle,idx)=>{
-            particle.update()
-            particle.draw(ctx)
-        })
+        // particles.forEach((particle,idx)=>{
+        //     particle.update()
+        //     particle.draw(ctx)
+
+        //     if(particle.opacity<0) particles.splice(idx,1)
+        // })
+        for(let i=particles.length-1;i>=0;i--){
+            particles[i].update()
+            particles[i].draw(ctx)
+
+            if(particles[i].opacity<0) particles.splice(i,1)
+        }
     
         then=now-(delta%interval)
     }
