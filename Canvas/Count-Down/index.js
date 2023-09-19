@@ -40,12 +40,6 @@ function render(){
         if(delta<interval) return 
         ctx.clearRect(0,0,canvasWidth,canvasHeight)
 
-        // particles.forEach((particle,idx)=>{
-        //     particle.update()
-        //     particle.draw(ctx)
-
-        //     if(particle.opacity<0) particles.splice(idx,1)
-        // })
         for(let i=particles.length-1;i>=0;i--){
             particles[i].update()
             particles[i].draw(ctx)
