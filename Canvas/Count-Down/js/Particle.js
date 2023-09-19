@@ -4,7 +4,7 @@ export default class Particle{
     constructor(){
         this.rFriction=randomNumBetween(0.95,1.01)
         this.rAlpha=randomNumBetween(0,5)
-        this.r=innerHeight/4
+        this.r=innerHeight*3/8
 
         this.angleFriction=randomNumBetween(0.97,0.99)
         this.angleAlpha=randomNumBetween(1,2)

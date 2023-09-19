@@ -10,7 +10,7 @@ let canvasHeight=innerHeight
 const interval=1000/60
 
 const particles=[]
-const PARTICLE_NUM=800
+const PARTICLE_NUM=1000
 
 function init(){
     canvasWidth=innerWidth
