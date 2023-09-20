@@ -1,3 +1,5 @@
+import Particle from "./js/Particle"
+
 const canvas=document.querySelector('canvas')
 const ctx=canvas.getContext('2d')
 
@@ -25,14 +27,32 @@ function render(){
     let now, delta;
     let then=Date.now()
 
+    const x=innerWidth/2
+    let y=innerHeight/2
+    let widthAlpha=0
+    const width=50
+    const height=50
+    let deg=0.1
+
     const frame=()=>{
         requestAnimationFrame(frame)
         now=Date.now()
         delta=now-then
         if(delta<interval) return
+        ctx.clearRect(0,0,canvasWidth,canvasHeight)
+
+        widthAlpha+=0.1
+        deg+=0.1    
+        y+=1
+
+        ctx.translate(x+width,y+height)
+        ctx.rotate(deg)
+        ctx.translate(-x-width,-y-height)
 
         ctx.fillStyle='red'
-        ctx.fillRect(200,200,50,50)
+        ctx.fillRect(x,y,width*Math.cos(widthAlpha),height*Math.sin(widthAlpha))
+
+        ctx.resetTransform()
 
         then=now-(delta%interval)
     }
