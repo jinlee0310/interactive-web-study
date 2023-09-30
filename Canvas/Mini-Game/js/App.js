@@ -1,4 +1,5 @@
 import Background from "./Background.js"
+import Wall from "./Wall.js"
 
 export default class App{
     static canvas=document.querySelector('canvas')
@@ -13,6 +14,10 @@ export default class App{
             new Background({img:document.querySelector('#bg3-img'),speed:-1}),
             new Background({img:document.querySelector('#bg2-img'),speed:-2}),
             new Background({img:document.querySelector('#bg1-img'),speed:-4}),
+        ]
+
+        this.walls=[
+            new Wall({type:'BIG'})
         ]
 
         //binding을 안해주면 this가 window를 가리킴
@@ -44,6 +49,11 @@ export default class App{
             this.backgrounds.forEach(background=>{
                 background.update()
                 background.draw()
+            })
+
+            this.walls.forEach(wall=>{
+                wall.update()
+                wall.draw()
             })
 
             then=now-(delta%App.interval)
