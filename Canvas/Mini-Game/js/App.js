@@ -1,3 +1,5 @@
+import Background from "./Background.js"
+
 export default class App{
     static canvas=document.querySelector('canvas')
     static ctx=App.canvas.getContext('2d')
@@ -7,6 +9,12 @@ export default class App{
     static height=768
 
     constructor(){
+        this.backgrounds=[
+            new Background({img:document.querySelector('#bg3-img'),speed:-1}),
+            new Background({img:document.querySelector('#bg2-img'),speed:-2}),
+            new Background({img:document.querySelector('#bg1-img'),speed:-4}),
+        ]
+
         //binding을 안해주면 this가 window를 가리킴
         window.addEventListener('resize',this.resize.bind(this))
     }
@@ -32,6 +40,11 @@ export default class App{
 
             App.ctx.clearRect(0,0,App.width,App.height)
             App.ctx.fillRect(50,50,100,100)
+
+            this.backgrounds.forEach(background=>{
+                background.update()
+                background.draw()
+            })
 
             then=now-(delta%App.interval)
         }
