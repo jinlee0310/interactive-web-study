@@ -1,4 +1,5 @@
 import Background from "./Background.js"
+import Player from "./Player.js"
 import Wall from "./Wall.js"
 
 export default class App{
@@ -19,6 +20,8 @@ export default class App{
         this.walls=[
             new Wall({type:'SMALL'})
         ]
+
+        this.player=new Player()
 
         //binding을 안해주면 this가 window를 가리킴
         window.addEventListener('resize',this.resize.bind(this))
@@ -70,12 +73,9 @@ export default class App{
                 }
             }
 
-            this.walls.forEach((wall,i)=>{
-                wall.update()
-                wall.draw()
-
-                if(wall.isOutside) this.walls.splice(i,1)
-            })
+            // 플레이어 관련
+            this.player.update()
+            this.player.draw()
 
             then=now-(delta%App.interval)
         }
