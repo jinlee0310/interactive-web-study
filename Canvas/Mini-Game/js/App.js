@@ -1,4 +1,5 @@
 import Background from "./Background.js"
+import Coin from "./Coin.js"
 import Player from "./Player.js"
 import Wall from "./Wall.js"
 
@@ -22,6 +23,14 @@ export default class App{
         ]
 
         this.player=new Player()
+
+        this.coins=[
+            new Coin(
+                this.walls[0].x+this.walls[0].width/2,
+                this.walls[0].y2-this.walls[0].gapY/2,
+                this.walls[0].vx
+            )
+        ]
 
         //binding을 안해주면 this가 window를 가리킴
         window.addEventListener('resize',this.resize.bind(this))
@@ -69,7 +78,15 @@ export default class App{
                 // 벽 생성
                 if(this.walls[i].canGenerateNext){
                     this.walls[i].generatedNext=true
-                    this.walls.push(new Wall({type:Math.random()>0.3? 'SMALL':'BIG'}))
+                    const newWall=new Wall({type:Math.random()>0.3? 'SMALL':'BIG'})
+                    this.walls.push(newWall)
+
+                    // 코인 생성
+                    if(Math.random()<1){
+                        const x=newWall.x+newWall.width/2
+                        const y=newWall.y2-newWall.gapY/2
+                        this.coins.push(new Coin(x,y,newWall.vx))
+                    }
                 }
 
                 // 벽과 플레이어 충돌 관련
@@ -83,6 +100,15 @@ export default class App{
             // 플레이어 관련
             // this.player.update()
             this.player.draw()
+
+            // 코인 생성
+            for(let i=this.coins.length-1;i>=0;i--){
+                this.coins[i].update()
+                this.coins[i].draw()
+                if(this.coins[i].x+this.coins[i].width<0){
+                    this.coins.splice(i,1)
+                }
+            }
 
             then=now-(delta%App.interval)
         }

@@ -29,6 +29,8 @@ export default class Wall{
         // 아랫벽 y좌표
         this.y2=this.y1+this.height+this.gapY
 
+        this.vx=-6
+
         // 다음 벽을 만드는 데 판단하는 변수
         this.generatedNext=false
         this.gapNextX=App.width*randomNumBetween(0.6,0.75)
@@ -56,7 +58,7 @@ export default class Wall{
     }
 
     update(){
-        this.x+=-6
+        this.x+=this.vx
         this.boundingBox1.x=this.boundingBox2.x=this.x+30
 
     }
