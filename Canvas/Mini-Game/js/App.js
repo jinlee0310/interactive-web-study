@@ -107,6 +107,12 @@ export default class App{
                 this.coins[i].draw()
                 if(this.coins[i].x+this.coins[i].width<0){
                     this.coins.splice(i,1)
+                    continue
+                }
+
+                // 코인과 플레이어 충돌 관련
+                if(this.coins[i].boundingBox.isColliding(this.player.boundingBox)){
+                    this.coins.splice(i,1)
                 }
             }
 
