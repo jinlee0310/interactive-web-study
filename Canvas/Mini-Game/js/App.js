@@ -43,6 +43,10 @@ export default class App{
         App.canvas.width=App.width*App.dpr
         App.canvas.height=App.height*App.dpr
         App.ctx.scale(App.dpr,App.dpr)
+
+        this.backgrounds.forEach(background=>{
+            background.draw()
+        })
     }
 
     render(){
@@ -53,10 +57,11 @@ export default class App{
             now=Date.now()
             delta=now-then
             if(delta<App.interval) return
+            
+            if(this.gameHandler._status !== 'PLAYING') return
 
             App.ctx.clearRect(0,0,App.width,App.height)
 
-            if(this.gameHandler._status !== 'PLAYING') return
 
             // 배경 관련
             this.backgrounds.forEach(background=>{
