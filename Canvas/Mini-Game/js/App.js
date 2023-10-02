@@ -71,10 +71,17 @@ export default class App{
                     this.walls[i].generatedNext=true
                     this.walls.push(new Wall({type:Math.random()>0.3? 'SMALL':'BIG'}))
                 }
+
+                // 벽과 플레이어 충돌 관련
+                if(this.walls[i].isColliding(this.player.boundingBox)){
+                    this.player.boundingBox.color=`rgba(255,0,0,0.3)`
+                }else{
+                    this.player.boundingBox.color=`rgba(0,0,255,0.3)`
+                }
             }
 
             // 플레이어 관련
-            this.player.update()
+            // this.player.update()
             this.player.draw()
 
             then=now-(delta%App.interval)

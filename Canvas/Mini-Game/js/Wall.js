@@ -34,8 +34,8 @@ export default class Wall{
         this.gapNextX=App.width*randomNumBetween(0.6,0.75)
 
         // draw bounding box
-        this.boundingBox1=new BoundingBox(this.x,this.y1,this.width,this.height)
-        this.boundingBox2=new BoundingBox(this.x,this.y2,this.width,this.height)
+        this.boundingBox1=new BoundingBox(this.x+30,this.y1+30,this.width-60,this.height-60)
+        this.boundingBox2=new BoundingBox(this.x+30,this.y2+30,this.width-60,this.height-60)
     }
 
     get isOutside(){
@@ -48,9 +48,16 @@ export default class Wall{
         )
     }
 
+    isColliding(target){
+        return (
+            this.boundingBox1.isColliding(target) ||
+            this.boundingBox2.isColliding(target)
+        )
+    }
+
     update(){
         this.x+=-6
-        this.boundingBox1.x=this.boundingBox2.x=this.x
+        this.boundingBox1.x=this.boundingBox2.x=this.x+30
 
     }
 
