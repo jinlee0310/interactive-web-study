@@ -7,7 +7,7 @@ export default class BoundingBox{
         this.width=width
         this.height=height
 
-        this.color=`rgba(255,0,0,0.3)`
+        this.color=`transparent`
     }
 
     isColliding(target){
