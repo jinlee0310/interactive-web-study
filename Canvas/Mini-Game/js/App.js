@@ -1,5 +1,6 @@
 import Background from "./Background.js"
 import Coin from "./Coin.js"
+import GameHandler from "./GameHandler.js"
 import Player from "./Player.js"
 import Score from "./Score.js"
 import Wall from "./Wall.js"
@@ -13,6 +14,8 @@ export default class App{
     static height=768
 
     constructor(){
+        this.gameHandler=new GameHandler()
+
         this.backgrounds=[
             new Background({img:document.querySelector('#bg3-img'),speed:-1}),
             new Background({img:document.querySelector('#bg2-img'),speed:-2}),
@@ -34,19 +37,12 @@ export default class App{
         ]
 
         this.score=new Score()
-
-        //binding을 안해주면 this가 window를 가리킴
-        window.addEventListener('resize',this.resize.bind(this))
     }
 
-    resize(){
+    init(){
         App.canvas.width=App.width*App.dpr
         App.canvas.height=App.height*App.dpr
         App.ctx.scale(App.dpr,App.dpr)
-
-        const width=innerWidth>innerHeight? innerWidth * 0.9 : innerHeight * 0.9
-        App.canvas.style.width=width+'px'
-        App.canvas.style.height=width*(3/4)+'px'
     }
 
     render(){
@@ -59,7 +55,8 @@ export default class App{
             if(delta<App.interval) return
 
             App.ctx.clearRect(0,0,App.width,App.height)
-            App.ctx.fillRect(50,50,100,100)
+
+            if(this.gameHandler._status !== 'PLAYING') return
 
             // 배경 관련
             this.backgrounds.forEach(background=>{
