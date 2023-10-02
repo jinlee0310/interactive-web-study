@@ -98,7 +98,7 @@ export default class App{
             }
 
             // 플레이어 관련
-            // this.player.update()
+            this.player.update()
             this.player.draw()
 
             // 코인 생성
