@@ -109,6 +109,13 @@ export default class App{
             this.player.update()
             this.player.draw()
 
+            if(
+                this.player.y>=App.height ||
+                this.player.y+this.player.height<=0
+            ){
+                this.gameHandler.status='FINISHED'
+            }
+
             // 코인 생성
             for(let i=this.coins.length-1;i>=0;i--){
                 this.coins[i].update()
