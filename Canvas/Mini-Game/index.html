@@ -8,19 +8,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js" ></script>
 </head>
 <body>
     <img src="./assets/bg1.png" id="bg1-img" class="asset-img" />
     <img src="./assets/bg2.png" id="bg2-img" class="asset-img" />
     <img src="./assets/bg3.png" id="bg3-img" class="asset-img" />
-
     <img src="./assets/Wall.png" id="wall-img" class="asset-img" />
-
     <img src="./assets/bird.png" id="bird-img" class="asset-img" />
-
     <img src="./assets/coin.png" id="coin-img" class="asset-img" />
 
-    <canvas></canvas>
+    <main>
+        <section class="ready-screen">
+            <h1 class="title">Flying Bug</h1>
+            <img src="./assets/play.svg" class="play-img" />
+        </section>
+
+        <section class="finish-screen">
+            <div class="distance">0m</div>
+            <div class="coin">0 coin</div>
+            <img src="./assets/replay.svg" class="replay-img" />
+        </section>
+
+        <canvas></canvas>
+    </main>
 
     <script type="module" src="./index.js"></script>
 </body>

@@ -14,7 +14,7 @@ export default class App{
     static height=768
 
     constructor(){
-        this.gameHandler=new GameHandler()
+        this.gameHandler=new GameHandler(this)
 
         this.backgrounds=[
             new Background({img:document.querySelector('#bg3-img'),speed:-1}),
@@ -22,6 +22,10 @@ export default class App{
             new Background({img:document.querySelector('#bg1-img'),speed:-4}),
         ]
 
+        this.reset()
+    }
+
+    reset(){
         this.walls=[
             new Wall({type:'SMALL'})
         ]
@@ -58,7 +62,7 @@ export default class App{
             delta=now-then
             if(delta<App.interval) return
             
-            if(this.gameHandler._status !== 'PLAYING') return
+            if(this.gameHandler.status !== 'PLAYING') return
 
             App.ctx.clearRect(0,0,App.width,App.height)
 
@@ -96,9 +100,8 @@ export default class App{
 
                 // 벽과 플레이어 충돌 관련
                 if(this.walls[i].isColliding(this.player.boundingBox)){
-                    this.player.boundingBox.color=`rgba(255,0,0,0.3)`
-                }else{
-                    this.player.boundingBox.color=`rgba(0,0,255,0.3)`
+                    this.gameHandler.status='FINISHED'
+                    break
                 }
             }
 
