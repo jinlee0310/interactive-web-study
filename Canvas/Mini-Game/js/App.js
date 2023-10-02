@@ -1,6 +1,7 @@
 import Background from "./Background.js"
 import Coin from "./Coin.js"
 import Player from "./Player.js"
+import Score from "./Score.js"
 import Wall from "./Wall.js"
 
 export default class App{
@@ -31,6 +32,8 @@ export default class App{
                 this.walls[0].vx
             )
         ]
+
+        this.score=new Score()
 
         //binding을 안해주면 this가 window를 가리킴
         window.addEventListener('resize',this.resize.bind(this))
@@ -113,8 +116,11 @@ export default class App{
                 // 코인과 플레이어 충돌 관련
                 if(this.coins[i].boundingBox.isColliding(this.player.boundingBox)){
                     this.coins.splice(i,1)
+                    this.score.coinCount+=1
                 }
             }
+            this.score.update()
+            this.score.draw()
 
             then=now-(delta%App.interval)
         }
