@@ -1,8 +1,10 @@
+import Dot from "./Dot.js";
+
 export default class App {
     static width = innerWidth;
     static height = innerHeight;
     static dpr = devicePixelRatio > 1 ? 2 : 1;
-    static interval = 1000 / 10;
+    static interval = 1000 / 60;
 
     constructor() {
         this.canvas = document.querySelector("canvas");
@@ -10,6 +12,8 @@ export default class App {
 
         this.resize();
         window.addEventListener("resize", this.resize.bind(this));
+
+        this.dots = [new Dot(400, 50)];
     }
 
     resize() {
@@ -36,7 +40,10 @@ export default class App {
             then = now - (delta % App.interval);
 
             this.ctx.clearRect(0, 0, App.width, App.height);
-            this.ctx.fillRect(100, 100, 100, 100);
+            this.dots.forEach((dot) => {
+                dot.update();
+                dot.draw(this.ctx);
+            });
         };
         requestAnimationFrame(frame);
     }
