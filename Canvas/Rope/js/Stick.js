@@ -5,7 +5,7 @@ export default class Stick {
 
         this.length = this.startPoint.pos.dist(this.endPoint.pos);
 
-        this.tension = 0.05;
+        this.tension = 0.5;
     }
 
     update() {
