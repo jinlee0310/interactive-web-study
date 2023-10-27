@@ -1,4 +1,4 @@
-import Circle from "./Circle.js";
+import Circle from "./Astronaut.js";
 
 export default class App {
     static canvas = document.querySelector("canvas");
