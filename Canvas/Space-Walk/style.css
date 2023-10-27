@@ -10,6 +10,12 @@ body {
     background-color: #1f1f1f;
 }
 
+canvas {
+    background: url("./asset/space.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 img {
     display: none;
 }
