@@ -8,12 +8,18 @@ export default class Circle {
         this.vx = 2;
         this.vy = 0.25;
 
+        this.image = document.querySelector("img");
+
+        this.imageWidth = 50;
+        this.imageHeight =
+            this.imageWidth * (this.image.height / (this.image.width / 8));
+
         App.canvas.addEventListener("click", (e) => {
             if (
-                this.x >= e.clientX - 50 &&
-                this.x <= e.clientX + 50 &&
-                this.y >= e.clientY - 50 &&
-                this.y <= e.clientY + 50
+                this.x >= e.clientX - this.imageWidth / 2 &&
+                this.x <= e.clientX + this.imageWidth / 2 &&
+                this.y >= e.clientY - this.imageHeight / 2 &&
+                this.y <= e.clientY + this.imageHeight / 2
             ) {
                 this.vx *= -1;
                 this.vy *= -1;
@@ -25,19 +31,25 @@ export default class Circle {
         this.x += this.vx;
         this.y += this.vy;
 
-        if (this.x - 50 < 0 || this.x + 50 > App.width) {
+        if (this.x < 0 || this.x + this.imageWidth > App.width) {
             this.vx *= -1;
         }
-        if (this.y - 50 < 0 || this.y + 50 > App.height) {
+        if (this.y < 0 || this.y + this.imageHeight > App.height) {
             this.vy *= -1;
         }
     }
 
-    draw(ctx) {
-        ctx.beginPath(); //path를 그리기 시작함
-        ctx.arc(this.x, this.y, 50, 0, (Math.PI / 180) * 360); //각도 단위는 rad
-        ctx.fillStyle = "#fff";
-        ctx.fill();
-        ctx.closePath();
+    draw() {
+        App.ctx.drawImage(
+            this.image,
+            (this.image.width / 8) * 3,
+            0,
+            this.image.width / 8,
+            this.image.height,
+            this.x,
+            this.y,
+            this.imageWidth,
+            this.imageHeight
+        );
     }
 }
