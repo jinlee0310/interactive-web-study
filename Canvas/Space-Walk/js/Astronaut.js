@@ -16,10 +16,10 @@ export default class Circle {
 
         App.canvas.addEventListener("click", (e) => {
             if (
-                this.x >= e.clientX - this.imageWidth / 2 &&
-                this.x <= e.clientX + this.imageWidth / 2 &&
-                this.y >= e.clientY - this.imageHeight / 2 &&
-                this.y <= e.clientY + this.imageHeight / 2
+                this.x >= e.clientX - this.imageWidth &&
+                this.x <= e.clientX &&
+                this.y >= e.clientY - this.imageHeight &&
+                this.y <= e.clientY
             ) {
                 this.vx *= -1;
                 this.vy *= -1;
@@ -31,12 +31,21 @@ export default class Circle {
         this.x += this.vx;
         this.y += this.vy;
 
-        if (this.x < 0 || this.x + this.imageWidth > App.width) {
-            this.vx *= -1;
+        if (this.x < -this.imageWidth) {
+            this.x = App.width;
         }
-        if (this.y < 0 || this.y + this.imageHeight > App.height) {
-            this.vy *= -1;
+        if (this.x > App.width) {
+            this.x = 0;
         }
+        if (this.y < -this.imageHeight) {
+            this.y = App.height;
+        }
+        if (this.y > App.height) {
+            this.y = 0;
+        }
+        // if (this.y < 0 || this.y + this.imageHeight > App.height) {
+        //     this.vy *= -1;
+        // }
     }
 
     draw() {
