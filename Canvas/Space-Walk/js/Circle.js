@@ -10,9 +10,9 @@ export default class Circle {
 
         this.image = document.querySelector("img");
 
-        this.imageWidth = 50;
+        this.imageWidth = 100;
         this.imageHeight =
-            this.imageWidth * (this.image.height / (this.image.width / 8));
+            this.imageWidth * (this.image.height / this.image.width);
 
         App.canvas.addEventListener("click", (e) => {
             if (
@@ -42,9 +42,9 @@ export default class Circle {
     draw() {
         App.ctx.drawImage(
             this.image,
-            (this.image.width / 8) * 3,
             0,
-            this.image.width / 8,
+            0,
+            this.image.width,
             this.image.height,
             this.x,
             this.y,
