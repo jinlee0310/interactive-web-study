@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./reset.css" />
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <div id="main-img-wrapper">
+            <img
+                width="320"
+                src="./assets/Lovepik_com-401339128-data-management-data-analysis-icon-free-vector-illustration-mate.png"
+                alt="coding-img"
+            />
+        </div>
+        <div id="intro-main">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Lorem, ipsum.</p>
+            <p id="join-us-text">Join us!</p>
+            <img
+                src="./assets/down-arrow.png"
+                id="down-arrow-icon"
+                alt="down arrow icon"
+            />
+        </div>
+        <ul id="list-item-wrapper">
+            <li class="list-item">Lorem ipsum dolor sit amet.</li>
+            <li class="list-item">Lorem ipsum dolor sit amet.</li>
+            <li class="list-item">Lorem ipsum dolor sit amet.</li>
+            <li class="list-item">Lorem ipsum dolor sit amet.</li>
+            <li class="list-item">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            </li>
+            <li class="list-item">Lorem ipsum consectetur adipisicing elit.</li>
+            <li class="list-item">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            </li>
+            <li class="list-item">Lorem ipsum consectetur adipisicing elit.</li>
+        </ul>
+        <main>
+            <section id="panel1-img">
+                <img
+                    src="./assets/santa_flying.png"
+                    alt="flying santa"
+                    id="flying-santa-img"
+                />
+            </section>
+        </main>
+        <script>
+            const listStyleChangeStartY = 373;
+            const listStyleChangeEndY = 1585;
+
+            const listItems = document.querySelectorAll(".list-item");
+
+            const division =
+                (listStyleChangeEndY - listStyleChangeStartY) /
+                listItems.length;
+
+            const panel1Img = document.querySelector("#panel1-img");
+            const flyingSantaImage =
+                document.querySelector("#flying-santa-img");
+
+            window.addEventListener("scroll", () => {
+                // console.log(window.screenY);
+                if (document.querySelector("#on"))
+                    document.querySelector("#on").removeAttribute("id");
+
+                if (
+                    window.scrollY > listStyleChangeStartY &&
+                    window.scrollY < listStyleChangeEndY
+                ) {
+                    const idx = Math.round(
+                        (window.scrollY - listStyleChangeStartY) / division
+                    );
+                    if (listItems[idx]) {
+                        listItems[idx].id = "on";
+                    }
+                }
+
+                const scrollYBottom =
+                    window.scrollY + document.documentElement.clientHeight;
+
+                if (
+                    scrollYBottom > panel1Img.offsetTop &&
+                    scrollYBottom <
+                        panel1Img.offsetTop + panel1Img.offsetHeight + 100
+                ) {
+                    const translateX =
+                        80 -
+                        (80 * 1.3 * (scrollYBottom - panel1Img.offsetTop)) /
+                            (panel1Img.offsetHeight + 100);
+                    const translateY =
+                        -13 +
+                        (13 * (scrollYBottom - panel1Img.offsetTop)) /
+                            (panel1Img.offsetHeight + 100);
+
+                    const rotationDegree =
+                        23 -
+                        (23 * 1.7 * (scrollYBottom - panel1Img.offsetTop)) /
+                            (panel1Img.offsetHeight + 100);
+
+                    flyingSantaImage.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotationDegree}deg)`;
+                }
+            });
+        </script>
+    </body>
+</html>
