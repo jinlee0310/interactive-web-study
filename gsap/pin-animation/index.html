@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GSAP Scroll Effect</title>
+
+        <!-- 웹폰트 설정 -->
+        <link
+            href="https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <!-- parallax__title  -->
+        <header id="parallax__title">
+            <h1>GSAP Parallax Effect02</h1>
+            <p>GSAP scrollTrigger - Pin 애니메이션</p>
+        </header>
+
+        <main id="parallax__cont">
+            <!-- section1 -->
+            <section id="section1" class="parallax__item">
+                <span class="parallax__item__num">01</span>
+                <div class="parallax__item__img"></div>
+            </section>
+            <!-- section2 -->
+            <section id="section2" class="parallax__item">
+                <span class="parallax__item__num">02</span>
+                <div class="parallax__item__img i1"></div>
+                <div class="parallax__item__img i2"></div>
+                <div class="parallax__item__img i3"></div>
+            </section>
+
+            <!-- section3 -->
+            <section id="section3" class="parallax__item">
+                <span class="parallax__item__num">03</span>
+                <div class="parallax__item__img"></div>
+                <div class="parallax__item__img"></div>
+                <div class="parallax__item__img"></div>
+                <div class="parallax__item__img"></div>
+                <div class="parallax__item__img"></div>
+                <div class="parallax__item__img"></div>
+            </section>
+
+            <!-- section4 -->
+            <section id="section4" class="parallax__item">
+                <span class="parallax__item__num">04</span>
+                <div class="parallax__item__img">
+                    <img
+                        src="https://images.unsplash.com/photo-1720659201108-4efe526b289c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="splash"
+                    />
+                </div>
+            </section>
+
+            <!-- section5 -->
+            <section id="section5" class="parallax__item">
+                <span class="parallax__item__num">05</span>
+                <div class="parallax__item__text t1">section5</div>
+                <div class="parallax__item__text t2">section5</div>
+                <div class="parallax__item__text t3">section5</div>
+                <div class="parallax__item__text t4">section5</div>
+            </section>
+
+            <!-- section6 -->
+            <section id="section6" class="parallax__item">
+                <span class="parallax__item__num">06</span>
+                <div class="parallax__item__text">section6</div>
+                <div class="parallax__item__img">
+                    <img
+                        src="https://images.unsplash.com/photo-1720692393334-c2301df7e0c9?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="splash"
+                    />
+                </div>
+            </section>
+
+            <!-- section7 -->
+            <section id="section7" class="parallax__item">
+                <span class="parallax__item__num">07</span>
+                <div class="parallax__item__text t1">코딩이란</div>
+                <div class="parallax__item__text t2">프로그래밍 코드를</div>
+                <div class="parallax__item__text t3">어딘가에</div>
+                <div class="parallax__item__text t4">적는 것을 말한다</div>
+                <div class="parallax__item__text t5">코딩은</div>
+                <div class="parallax__item__text t6">누구나</div>
+                <div class="parallax__item__text t7">할 수 있다.</div>
+            </section>
+        </main>
+        <!-- GSAP 라이브러리 설정 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollToPlugin.min.js"></script>
+        <script src="./app.js"></script>
+    </body>
+</html>
