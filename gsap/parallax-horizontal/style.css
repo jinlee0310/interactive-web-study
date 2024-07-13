@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: #fff;
+    text-decoration: none;
+}
+body {
+    color: #fff;
+    font-family: "NexonLv1Gothic";
+    font-weight: 300;
+    background-color: #333;
+}
+#parallax__title {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    z-index: 1000;
+}
+#parallax__title h1 {
+    font-size: 30px;
+    border-bottom: 1px dashed #fff;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    font-weight: 400;
+    display: inline-block;
+}
+#parallax__title p {
+    font-size: 16px;
+}
+#parallax__title ul {
+    margin-top: 10px;
+}
+#parallax__title li {
+    display: inline;
+}
+#parallax__title li a {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px dashed #fff;
+    display: inline-block;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+}
+#parallax__title li.active a {
+    background: #fff;
+    color: #000;
+}
+
+/* parallax__cont */
+.parallax__item {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.parallax__item__num {
+    font-size: 5vw;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-family: "Lato";
+    font-weight: 100;
+    z-index: 100;
+}
+.parallax__item__imgWrap {
+    width: 30%;
+    padding-bottom: 18%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.parallax__item__img {
+    position: absolute;
+    left: -5%;
+    top: -5%;
+    width: 110%;
+    height: 110%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    filter: saturate(0%);
+    transition: all 1s;
+}
+.parallax__item__img:hover {
+    filter: saturate(100%);
+    transform: scale(1.025);
+}
+#section1 .parallax__item__img {
+    background-image: url("https://images.unsplash.com/photo-1619995745882-f4128ac82ad6?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+#section2 .parallax__item__img {
+    background-image: url("https://images.unsplash.com/photo-1649336321305-3fe272852c94?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+#section3 .parallax__item__img {
+    background-image: url("https://images.unsplash.com/photo-1651974041649-e08cf7d854a1?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+#section4 .parallax__item__img {
+    background-image: url("https://images.unsplash.com/photo-1693292325435-ce1823a5b09e?q=80&w=2192&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+#section5 .parallax__item__img {
+    background-image: url("https://images.unsplash.com/photo-1649770638727-6056d269d587?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+#section6 .parallax__item__img {
+    background-image: url("https://images.unsplash.com/photo-1649770637836-4cb2971a17db?q=80&w=2433&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+#section7 .parallax__item__img {
+    background-image: url("https://images.unsplash.com/photo-1629451565902-4c40a51b374e?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+#section8 .parallax__item__img {
+    background-image: url("https://images.unsplash.com/photo-1703574915891-447a61e14896?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+#section9 .parallax__item__img {
+    background-image: url("https://images.unsplash.com/photo-1649336320659-f9f8da5ee1ca?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+#section1,
+#section3,
+#section5,
+#section7,
+#section9 {
+    background-color: #111;
+}
+
+#parallax__cont {
+    overflow: hidden;
+}
+#horizontal {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 500%;
+}
+#horizontal > section {
+    width: 100%;
+}
